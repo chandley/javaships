@@ -9,5 +9,12 @@ describe("Board", function() {
     expect(board.cells).toContain("cell");
   });
   
+ it("can shoot a cell", function() {
+    cell = jasmine.createSpyObj('cell',['shoot']);
+    board.add(cell);
+    board.shootAt(cell);
+    expect(cell.shoot).toHaveBeenCalled();
+  });
+ 
 });  
 
